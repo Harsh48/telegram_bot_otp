@@ -9,7 +9,7 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 // Connect to MongoDB
 mongoose
   .connect(
-    'mongodb://YOUR_MONGO_URI',
+    'mongodb+srv://Abbas-admin:Yaalimadad110@cluster0.bjdhxec.mongodb.net/',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -44,14 +44,14 @@ async function sendVerificationEmail(email, code) {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'mohammadabbas434@gmail.com', // Add your Gmail email address
-      pass: 'mwli sgfu rikv bkzo', // Add your Gmail password
+      user: 'your_email', // Add your Gmail email address
+      pass: 'Password', // Add your Gmail password (2 step verification passcode)
     },
   });
 
   // Setup email data
   const mailOptions = {
-    from: 'mohammadabbas434@gmail.com',
+    from: 'your_email',
     to: email,
     subject: 'Verification Code for Chat Bot',
     text: `Your verification code is: ${code}`,
@@ -71,13 +71,13 @@ bot.onText(/\/start/, async (msg) => {
   const chatId = msg.chat.id;
 
   // Store the code in the database
-  //   try {
-  //     await OneTimeCode.create({ code });
-  //   } catch (error) {
-  //     console.error('Error storing one-time code:', error);
-  //     bot.sendMessage(chatId, 'Internal server error. Please try again later.');
-  //     return;
-  //   }
+  // try {
+  //   await User.create({ code });
+  // } catch (error) {
+  //   console.error('Error storing one-time code:', error);
+  //   bot.sendMessage(chatId, 'Internal server error. Please try again later.');
+  //   return;
+  // }
 
   // Check if the user is already registered
   let user = await User.findOne({ chatId });
