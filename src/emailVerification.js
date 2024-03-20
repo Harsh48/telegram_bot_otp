@@ -8,13 +8,10 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    'mongodb+srv://Abbas-admin:Yaalimadad110@cluster0.bjdhxec.mongodb.net/',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect('Your_String.mongodb.net/', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log('Connected to MongoDB');
   })
