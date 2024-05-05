@@ -6,7 +6,6 @@ const nodemailer = require('nodemailer');
 const TOKEN = '7023229435:AAH9Eh0wJi3fT1K-JFU7NTAmSMZ2qFtkL94';
 const bot = new TelegramBot(TOKEN, { polling: true });
 
-// Connect to MongoDB
 mongoose
   .connect('Your_String.mongodb.net/', {
     useNewUrlParser: true,
